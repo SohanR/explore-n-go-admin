@@ -10,77 +10,11 @@ import noImage from '../../Images/no hotel.jpg';
 import { baseUrl } from '../../utils/base';
 import './hotels.scss';
 
-// dummy data
-// const hotelData = [
-//     {
-//         id: '630343eb94c2812e4cd7e45d',
-//         title: 'Burj Khalifa 2',
-//         price: '45',
-//         image: blog1,
-//         city: 'Dubai',
-//         rooms: 2,
-//         rating: '9.5',
-//         createdAt: new Date(Date.now()).toLocaleString(),
-//     },
-//     {
-//         id: '6303234eb94c2812e4cd7e45e',
-//         title: 'Best hotel in the city.',
-//         price: '45',
-//         image: blog2,
-//         city: 'Tokyo',
-//         rooms: 1,
-//         rating: '9',
-//         createdAt: new Date(Date.now()).toLocaleString(),
-//     },
-//     {
-//         id: 'e40343eb94c2812e4cd7e4233',
-//         title: 'Twin Tawer',
-//         price: '45',
-//         image: blog4,
-//         city: 'Dubai',
-//         rooms: 3,
-//         rating: '9.5',
-//         createdAt: new Date(Date.now()).toLocaleString(),
-//     },
-//     {
-//         id: '930343eb94c2812e4cd7e45g',
-//         title: 'Burj Khalifa 2',
-//         price: '45',
-//         image: blog5,
-//         city: 'Dubai',
-//         rooms: 2,
-//         rating: '8.5',
-//         createdAt: new Date(Date.now()).toLocaleString(),
-//     },
-//     {
-//         id: '60443eb94c2812e4cd7e45ii',
-//         title: 'Burj Khalifa 2',
-//         price: '45',
-//         image: blog6,
-//         city: 'Tokyo',
-//         rooms: 1,
-//         rating: '9.5',
-//         createdAt: new Date(Date.now()).toLocaleString(),
-//     },
-//     {
-//         id: 'e23343eb94c2812e4cd7e45kk',
-//         title: 'Burj Khalifa 2',
-//         price: '45',
-//         image: blog3,
-//         city: 'Dubai',
-//         rooms: 1,
-//         rating: '9',
-//         createdAt: new Date(Date.now()).toLocaleString(),
-//     },
-// ];
-
 function Hotels({ type }) {
     const [data, setData] = useState([]);
     const location = useLocation();
     const path = location.pathname.split('/')[1];
 
-    /* The `useEffect` hook is used to perform side effects in a functional component. In this case, the
-   effect is triggered when the `data` state variable changes. */
     useEffect(() => {
         const datass = async () => {
             const res = await axios.get(`${baseUrl}/hotels`);

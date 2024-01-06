@@ -37,7 +37,7 @@ function AddHotel({ inputs, title, type }) {
    update the state variable `roomData` with the response data. */
     useEffect(() => {
         const roomsss = async () => {
-            const room = await axios.get(`${baseUrl}/rooms`);
+            const room = await axios.get(`${baseUrl}/hotels`);
             setroomData(room.data.message);
         };
         roomsss();
