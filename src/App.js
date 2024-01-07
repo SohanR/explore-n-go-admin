@@ -13,6 +13,7 @@ import Hotels from './Pages/Hotels/Hotels';
 import Login from './Pages/Login/Login';
 import Rooms from './Pages/Rooms/Rooms';
 import Lists from './Pages/UserLists/UserLists';
+import PhotoGrapher from './Pages/photographer/PhotoGrapher';
 import './app.scss';
 
 // Dynamicaly change the data for different pages
@@ -401,7 +402,7 @@ function App() {
                                 index
                                 element={
                                     <ProtectedRoute>
-                                        <Rooms type="room" />
+                                        <PhotoGrapher type="room" />
                                     </ProtectedRoute>
                                 }
                             />
@@ -433,7 +434,7 @@ function App() {
                                 index
                                 element={
                                     <ProtectedRoute>
-                                        <Rooms type="room" />
+                                        <PhotoGrapher type="room" />
                                     </ProtectedRoute>
                                 }
                             />
