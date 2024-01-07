@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -18,7 +17,7 @@ function Sidebar() {
         <div className="sidebar">
             <div className="logo">
                 <Link to="/" style={{ textDecoration: 'none' }}>
-                    <h3 className="text_none">RoomsDashboard</h3>
+                    <h3 className="text_none">Explore&GoDashboard</h3>
                 </Link>
             </div>
 
@@ -47,14 +46,19 @@ function Sidebar() {
                             <TableChartIcon className="icon" /> Rooms
                         </li>
                     </Link>
-                    <Link to="/photographer" style={{ textDecoration: 'none' }}>
+                    <Link to="/taxis" style={{ textDecoration: 'none' }}>
+                        <li>
+                            <CreditCardIcon className="icon" /> Taxis
+                        </li>
+                    </Link>
+                    <Link to="/photographers" style={{ textDecoration: 'none' }}>
                         <li>
                             <CreditCardIcon className="icon" /> Photographers
                         </li>
                     </Link>
-                    <Link to="/taxis" style={{ textDecoration: 'none' }}>
+                    <Link to="/packages" style={{ textDecoration: 'none' }}>
                         <li>
-                            <CreditCardIcon className="icon" /> Taxis
+                            <CreditCardIcon className="icon" /> Packages
                         </li>
                     </Link>
                     <Link to="/orders" style={{ textDecoration: 'none' }}>
@@ -63,10 +67,7 @@ function Sidebar() {
                         </li>
                     </Link>
 
-                    <p className="spann">Seetings</p>
-                    <li>
-                        <AccountCircleIcon className="icon" /> Profile
-                    </li>
+                    <p className="span">Settings</p>
 
                     <li>
                         <LogoutIcon className="icon" /> Log Out

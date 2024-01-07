@@ -8,7 +8,6 @@ import AddHotel from './Pages/AddHotel/AddHotel';
 import AddNew from './Pages/AddNew/AddNew';
 import AddRoom from './Pages/AddRoom/AddRoom';
 import BlogDetail from './Pages/BlogDetail/BlogDetail';
-import Blogs from './Pages/Blogs/Blogs';
 import Detail from './Pages/Detail/Detail';
 import Hotels from './Pages/Hotels/Hotels';
 import Login from './Pages/Login/Login';
@@ -364,7 +363,7 @@ function App() {
                             />
                         </Route>
 
-                        {/* nested hotel routes */}
+                        {/* nested hotel's room routes */}
                         <Route path="rooms">
                             <Route
                                 index
@@ -396,8 +395,104 @@ function App() {
                             />
                         </Route>
 
+                        {/* nested taxis routes */}
+                        <Route path="taxis">
+                            <Route
+                                index
+                                element={
+                                    <ProtectedRoute>
+                                        <Rooms type="room" />
+                                    </ProtectedRoute>
+                                }
+                            />
+                            <Route
+                                path=":taxiId"
+                                element={
+                                    <ProtectedRoute>
+                                        <BlogDetail />
+                                    </ProtectedRoute>
+                                }
+                            />
+                            <Route
+                                path="addnew"
+                                element={
+                                    <ProtectedRoute>
+                                        <AddRoom
+                                            inputs={roomInpDetails}
+                                            title="Add New Room"
+                                            type="ROOM"
+                                        />
+                                    </ProtectedRoute>
+                                }
+                            />
+                        </Route>
+
+                        {/* nested photographer routes */}
+                        <Route path="photographers">
+                            <Route
+                                index
+                                element={
+                                    <ProtectedRoute>
+                                        <Rooms type="room" />
+                                    </ProtectedRoute>
+                                }
+                            />
+                            <Route
+                                path=":photographerId"
+                                element={
+                                    <ProtectedRoute>
+                                        <BlogDetail />
+                                    </ProtectedRoute>
+                                }
+                            />
+                            <Route
+                                path="addnew"
+                                element={
+                                    <ProtectedRoute>
+                                        <AddRoom
+                                            inputs={roomInpDetails}
+                                            title="Add New Room"
+                                            type="ROOM"
+                                        />
+                                    </ProtectedRoute>
+                                }
+                            />
+                        </Route>
+
+                        {/* nested package routes */}
+                        <Route path="packages">
+                            <Route
+                                index
+                                element={
+                                    <ProtectedRoute>
+                                        <Rooms type="room" />
+                                    </ProtectedRoute>
+                                }
+                            />
+                            <Route
+                                path=":packageId"
+                                element={
+                                    <ProtectedRoute>
+                                        <BlogDetail />
+                                    </ProtectedRoute>
+                                }
+                            />
+                            <Route
+                                path="addnew"
+                                element={
+                                    <ProtectedRoute>
+                                        <AddRoom
+                                            inputs={roomInpDetails}
+                                            title="Add New Room"
+                                            type="ROOM"
+                                        />
+                                    </ProtectedRoute>
+                                }
+                            />
+                        </Route>
+
                         {/* nested blogs routes */}
-                        <Route path="blogs">
+                        {/* <Route path="blogs">
                             <Route
                                 index
                                 element={
@@ -426,7 +521,7 @@ function App() {
                                     </ProtectedRoute>
                                 }
                             />
-                        </Route>
+                        </Route> */}
 
                         {/* nested product routes */}
                         <Route path="orders">
