@@ -28,8 +28,9 @@ function TableList() {
             customer: 'Devid John',
             date: '3 October, 2022',
             ammount: 45,
-            method: 'Online Payment',
+            method: 'Paid',
             status: 'Approved',
+            action: 'Pending',
         },
         {
             _id: 235343343,
@@ -38,8 +39,10 @@ function TableList() {
             customer: 'Julia Ani',
             date: '23 April, 2022',
             ammount: 55,
-            method: 'Cash On Delivery',
+            method: 'Due',
             status: 'Pending',
+           
+            action: 'Approve',
         },
         {
             _id: 234239873,
@@ -48,8 +51,9 @@ function TableList() {
             customer: 'John Smith',
             date: '10 October, 2022',
             ammount: 25,
-            method: 'Online Payment',
+            method: 'Paid',
             status: 'Approved',
+            action: 'Pending',
         },
         {
             _id: 23423143,
@@ -58,8 +62,9 @@ function TableList() {
             customer: 'Devid John',
             date: '3 March, 2022',
             ammount: 40,
-            method: 'Cash On Delivery',
+            method: 'Paid',
             status: 'Approved',
+            action: 'Pending',
         },
         {
             _id: 123423343,
@@ -68,8 +73,9 @@ function TableList() {
             customer: 'Humlar',
             date: '20 November, 2022',
             ammount: 45,
-            method: 'Online Payment',
+            method: 'Paid',
             status: 'Approved',
+            action: 'Pending',
         },
         {
             _id: 2333343,
@@ -78,8 +84,10 @@ function TableList() {
             customer: 'Devid John',
             date: '12 June, 2022',
             ammount: 28,
-            method: 'Cash On Delivery',
+            method: 'Due',
             status: 'Pending',
+            action: 'Approve',
+            
         },
     ];
 
@@ -95,6 +103,7 @@ function TableList() {
                         <TableCell className="table_cell">Date</TableCell>
                         <TableCell className="table_cell">Payment Status</TableCell>
                         <TableCell className="table_cell">Status</TableCell>
+                        <TableCell className="table_cell">Action</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -113,6 +122,9 @@ function TableList() {
                             <TableCell className="table_cell">{row.method}</TableCell>
                             <TableCell className="table_cell">
                                 <span className={`status ${row.status}`}>{row.status}</span>
+                            </TableCell>
+                            <TableCell className="table_cell">
+                                <span className={`status ${row.action}`}>{row.action}</span>
                             </TableCell>
                         </TableRow>
                     ))}
