@@ -11,10 +11,10 @@ import BlogDetail from './Pages/BlogDetail/BlogDetail';
 import Detail from './Pages/Detail/Detail';
 import Hotels from './Pages/Hotels/Hotels';
 import Login from './Pages/Login/Login';
-import Rooms from './Pages/Rooms/Rooms';
 import Lists from './Pages/UserLists/UserLists';
-import PhotoGrapher from './Pages/photographer/PhotoGrapher';
+import Rooms from './Pages/Rooms/Rooms';
 import './app.scss';
+import Taxis from './Pages/Taxis/Taxis';
 
 // Dynamicaly change the data for different pages
 const userInpDetails = [
@@ -402,7 +402,7 @@ function App() {
                                 index
                                 element={
                                     <ProtectedRoute>
-                                        <PhotoGrapher type="room" />
+                                        <Taxis type="room" />
                                     </ProtectedRoute>
                                 }
                             />
@@ -434,7 +434,7 @@ function App() {
                                 index
                                 element={
                                     <ProtectedRoute>
-                                        <PhotoGrapher type="room" />
+                                        {/* <PhotoGrapher type="room" /> */}
                                     </ProtectedRoute>
                                 }
                             />
