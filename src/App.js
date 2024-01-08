@@ -16,6 +16,7 @@ import Rooms from './Pages/Rooms/Rooms';
 import AddTaxi from './Pages/Taxis/AddTaxi';
 import Taxis from './Pages/Taxis/Taxis';
 import Lists from './Pages/UserLists/UserLists';
+import Order from './Pages/order/Order';
 import AddPackage from './Pages/package/AddPack';
 import Packages from './Pages/package/Packages';
 import AddPhoto from './Pages/photographer/AddPhoto';
@@ -535,7 +536,7 @@ function App() {
                                 index
                                 element={
                                     <ProtectedRoute>
-                                        <Lists type="product" />
+                                        <Order type="room" />
                                     </ProtectedRoute>
                                 }
                             />
