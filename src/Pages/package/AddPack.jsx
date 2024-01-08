@@ -18,7 +18,10 @@ function AddPackage({ inputs, title, type }) {
     hotelId: "",
 
   });
-
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInpVal({ ...inpVal, [name]: value });
+  };
 
   const [loading, setLoading] = useState(false);
   const [hotels, setHotels] = useState([]);
@@ -77,20 +80,6 @@ function AddPackage({ inputs, title, type }) {
   }, [selectedHotel]);
 
 
-  const handleHotelChange = (e) => {
-    setSelectedHotel(e.target.value);
-  };
-
-  const handleTaxiChange = (e) => {
-    setSelectedTaxi(e.target.value);
-  };
-
-  const handlePhotographerChange = (e) => {
-    setSelectedPhotographer(e.target.value);
-  };
-  const handleChange = (e) => {
-    setInpVal({ ...inpVal, [e.target.name]: e.target.value });
-  };
 
   console.log("input",inpVal);
   const handleSubmit = async (e) => {
@@ -114,7 +103,17 @@ function AddPackage({ inputs, title, type }) {
       setLoading(false);
     }
   };
-
+  const handleHotelChange = (e) => {
+    setInpVal({ ...inpVal, hotelId: e.target.value});
+  };
+  
+  const handleTaxiChange = (e) => {
+    setInpVal({ ...inpVal, taxiId: e.target.value });
+  };
+  
+  const handlePhotographerChange = (e) => {
+    setInpVal({ ...inpVal, photoId: e.target.value });
+  };
 
   console.log('selected', {
     selectedHotel,selectedPhotographer,selectedTaxi
@@ -130,56 +129,60 @@ function AddPackage({ inputs, title, type }) {
           <div className="new_page_content">
             <form onSubmit={handleSubmit} className="form">
               <div className="form_main">
-                <div className="select_inp_title">
-                  <label>Select Hotel</label>
-                  <select
-                    id="hotelId"
-                    value={inpVal.hotelId}
-                    onChange={(e) => handleChange(e, "hotelId")}
-                  >
-                     <option value="">Please select one</option> {/* Default option */}
-                    {hotels &&
-                      hotels.map((item) => (
-                        <option key={item._id} value={item._id}>
-                          {item.name}
-                        </option>
-                      ))}
-                  </select>
-                </div>
+              <div className="select_inp_title">
+  <label>Select Hotel</label>
+  <select
+    id="hotelId"
+    value={inpVal.hotelId}
+    onChange={handleHotelChange}
+    name="hotelId"
+  >
+    <option value="">Please select one</option>
+    {hotels &&
+      hotels.map((item) => (
+        <option key={item._id} value={item._id}>
+          {item.name}
+        </option>
+      ))}
+  </select>
+</div>
 
 
-                <div className="select_inp_title">
-                  <label>Select Photographer</label>
-                  <select
-                    id="photId"
-                    value={inpVal.photoId}
-                    onChange={handleChange}
-                  >
-                     <option value="">Please select one</option> {/* Default option */}
-                    {photographers &&
-                      photographers.map((item) => (
-                        <option key={item._id} value={item._id}>
-                          {item.name}
-                        </option>
-                      ))}
-                  </select>
-                </div>
+            <div className="select_inp_title">
+              <label>Select Photographer</label>
+              <select
+                id="photId"
+                value={inpVal.photoId}
+                onChange={handlePhotographerChange}
+                name="photoId"
+              >
+                <option value="">Please select one</option>
+                {photographers &&
+                  photographers.map((item) => (
+                    <option key={item._id} value={item._id}>
+                      {item.name}
+                    </option>
+                  ))}
+              </select>
+            </div>
 
-                <div className="select_inp_title">
-                  <label>Select Taxi</label>
-                  <select
-                    id="taxiId"
-                    value={inpVal.taxiId}
-                    onChange={handleChange}
-                  > <option value="">Please select one</option> {/* Default option */}
-                    {taxis &&
-                      taxis.map((item) => (
-                        <option key={item._id} value={item._id}>
-                          {item.carName}
-                        </option>
-                      ))}
-                  </select>
-                </div>
+            <div className="select_inp_title">
+              <label>Select Taxi</label>
+              <select
+                id="taxiId"
+                value={inpVal.taxiId}
+                onChange={handleTaxiChange}
+                name="taxiId"
+              >
+                <option value="">Please select one</option>
+                {taxis &&
+                  taxis.map((item) => (
+                    <option key={item._id} value={item._id}>
+                      {item.carName}
+                    </option>
+                  ))}
+              </select>
+            </div>
 
                 <Input
                   type="number"
