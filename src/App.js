@@ -11,6 +11,7 @@ import BlogDetail from './Pages/BlogDetail/BlogDetail';
 import Detail from './Pages/Detail/Detail';
 import Hotels from './Pages/Hotels/Hotels';
 import Login from './Pages/Login/Login';
+import AddPhoto from './Pages/PhotoGrapher/AddPhoto';
 import PhotoGrapher from './Pages/PhotoGrapher/PhotoGrapher';
 import Rooms from './Pages/Rooms/Rooms';
 import AddTaxi from './Pages/Taxis/AddTaxi';
@@ -19,7 +20,6 @@ import Lists from './Pages/UserLists/UserLists';
 import Order from './Pages/order/Order';
 import AddPackage from './Pages/package/AddPack';
 import Packages from './Pages/package/Packages';
-import AddPhoto from './Pages/photographer/AddPhoto';
 import './app.scss';
 
 // Dynamicaly change the data for different pages
