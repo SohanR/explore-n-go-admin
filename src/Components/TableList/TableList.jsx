@@ -41,7 +41,7 @@ function TableList() {
             ammount: 55,
             method: 'Due',
             status: 'Pending',
-           
+
             action: 'Approve',
         },
         {
@@ -87,7 +87,6 @@ function TableList() {
             method: 'Due',
             status: 'Pending',
             action: 'Approve',
-            
         },
     ];
 

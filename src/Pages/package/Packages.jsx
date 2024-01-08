@@ -6,14 +6,14 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import { baseUrl } from "../../utils/base";
 
-function Taxis() {
+function Packages() {
   const [data, setData] = useState([]);
   const location = useLocation();
-  const path = location.pathname.split("/")[1];
+
 
   useEffect(() => {
     const datass = async () => {
-      const res = await axios.get(`${baseUrl}/taxis`);
+      const res = await axios.get(`${baseUrl}/packs`);
       console.log("taxi", res);
       setData(res.data);
     };
@@ -84,8 +84,8 @@ function Taxis() {
 
         <div className="room_page_table">
           <div className="btnn">
-            <Link to="/taxis/addnew" style={{ textDecoration: "none" }}>
-              <button type="button">Create New Taxi</button>
+            <Link to="/packages/addnew" style={{ textDecoration: "none" }}>
+              <button type="button">Add New Packages</button>
             </Link>
           </div>
           <DataGrid
@@ -103,4 +103,4 @@ function Taxis() {
   );
 }
 
-export default Taxis;
+export default Packages;

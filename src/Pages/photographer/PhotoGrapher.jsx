@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PhotoGrapher = () => {
+function PhotoGrapher() {
     // You can add your photographer-related content here
     return (
         <div>
@@ -9,6 +9,6 @@ const PhotoGrapher = () => {
             {/* Add more elements like images, buttons, etc. */}
         </div>
     );
-};
+}
 
 export default PhotoGrapher;

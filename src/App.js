@@ -11,10 +11,15 @@ import BlogDetail from './Pages/BlogDetail/BlogDetail';
 import Detail from './Pages/Detail/Detail';
 import Hotels from './Pages/Hotels/Hotels';
 import Login from './Pages/Login/Login';
-import Lists from './Pages/UserLists/UserLists';
+import PhotoGrapher from './Pages/PhotoGrapher/PhotoGrapher';
 import Rooms from './Pages/Rooms/Rooms';
-import './app.scss';
+import AddTaxi from './Pages/Taxis/AddTaxi';
 import Taxis from './Pages/Taxis/Taxis';
+import Lists from './Pages/UserLists/UserLists';
+import AddPackage from './Pages/package/AddPack';
+import Packages from './Pages/package/Packages';
+import AddPhoto from './Pages/photographer/AddPhoto';
+import './app.scss';
 
 // Dynamicaly change the data for different pages
 const userInpDetails = [
@@ -418,7 +423,7 @@ function App() {
                                 path="addnew"
                                 element={
                                     <ProtectedRoute>
-                                        <AddRoom
+                                        <AddTaxi
                                             inputs={roomInpDetails}
                                             title="Add New Room"
                                             type="ROOM"
@@ -434,7 +439,7 @@ function App() {
                                 index
                                 element={
                                     <ProtectedRoute>
-                                        {/* <PhotoGrapher type="room" /> */}
+                                        <PhotoGrapher type="room" />
                                     </ProtectedRoute>
                                 }
                             />
@@ -450,7 +455,7 @@ function App() {
                                 path="addnew"
                                 element={
                                     <ProtectedRoute>
-                                        <AddRoom
+                                        <AddPhoto
                                             inputs={roomInpDetails}
                                             title="Add New Room"
                                             type="ROOM"
@@ -466,7 +471,7 @@ function App() {
                                 index
                                 element={
                                     <ProtectedRoute>
-                                        <Rooms type="room" />
+                                        <Packages type="room" />
                                     </ProtectedRoute>
                                 }
                             />
@@ -482,7 +487,7 @@ function App() {
                                 path="addnew"
                                 element={
                                     <ProtectedRoute>
-                                        <AddRoom
+                                        <AddPackage
                                             inputs={roomInpDetails}
                                             title="Add New Room"
                                             type="ROOM"
