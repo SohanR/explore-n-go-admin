@@ -16,7 +16,7 @@ function AddPackage({ inputs, title, type }) {
     taxiId: "",
     price: "",
     hotelId: "",
-
+    packageName:""
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,13 +47,13 @@ function AddPackage({ inputs, title, type }) {
     };
 
     const fetchRoomData = async () => {
-        try {
-          const response = await axios.get(`${baseUrl}/rooms/${selectedHotel}`);
-          setRooms(response.data.message);
-        } catch (error) {
-          console.error("Error fetching hotels:", error);
-        }
-      };
+      try {
+        const response = await axios.get(`${baseUrl}/rooms/${selectedHotel}`);
+        setRooms(response.data.message);
+      } catch (error) {
+        console.error("Error fetching hotels:", error);
+      }
+    };
 
     const fetchTaxiData = async () => {
       try {
@@ -76,12 +76,10 @@ function AddPackage({ inputs, title, type }) {
     fetchHotelData();
     fetchTaxiData();
     fetchPhotographerData();
-    fetchRoomData()
+    fetchRoomData();
   }, [selectedHotel]);
 
-
-
-  console.log("input",inpVal);
+  console.log("input", inpVal);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -93,7 +91,8 @@ function AddPackage({ inputs, title, type }) {
         hotel: inpVal.hotelId,
         taxi: inpVal.taxiId,
         photographer: inpVal.photoId,
-        price:inpVal.price
+        price: inpVal.price,
+        packageName:inpVal.packageName
       });
 
       setLoading(false);
@@ -104,19 +103,21 @@ function AddPackage({ inputs, title, type }) {
     }
   };
   const handleHotelChange = (e) => {
-    setInpVal({ ...inpVal, hotelId: e.target.value});
+    setInpVal({ ...inpVal, hotelId: e.target.value });
   };
-  
+
   const handleTaxiChange = (e) => {
     setInpVal({ ...inpVal, taxiId: e.target.value });
   };
-  
+
   const handlePhotographerChange = (e) => {
     setInpVal({ ...inpVal, photoId: e.target.value });
   };
 
-  console.log('selected', {
-    selectedHotel,selectedPhotographer,selectedTaxi
+  console.log("selected", {
+    selectedHotel,
+    selectedPhotographer,
+    selectedTaxi,
   });
   return (
     <div className="add_new_room">
@@ -129,60 +130,68 @@ function AddPackage({ inputs, title, type }) {
           <div className="new_page_content">
             <form onSubmit={handleSubmit} className="form">
               <div className="form_main">
-              <div className="select_inp_title">
-  <label>Select Hotel</label>
-  <select
-    id="hotelId"
-    value={inpVal.hotelId}
-    onChange={handleHotelChange}
-    name="hotelId"
-  >
-    <option value="">Please select one</option>
-    {hotels &&
-      hotels.map((item) => (
-        <option key={item._id} value={item._id}>
-          {item.name}
-        </option>
-      ))}
-  </select>
-</div>
+              <Input
+                  type="text"
+                  placeholder="Package Name"
+                  onChange={handleChange}
+                  name="packageName"
+                  lable="packageName"
+                  required
+                  errorMsg="name is required!"
+                />
+                <div className="select_inp_title">
+                  <label>Select Hotel</label>
+                  <select
+                    id="hotelId"
+                    value={inpVal.hotelId}
+                    onChange={handleHotelChange}
+                    name="hotelId"
+                  >
+                    <option value="">Please select one</option>
+                    {hotels &&
+                      hotels.map((item) => (
+                        <option key={item._id} value={item._id}>
+                          {item.name}
+                        </option>
+                      ))}
+                  </select>
+                </div>
 
+                <div className="select_inp_title">
+                  <label>Select Photographer</label>
+                  <select
+                    id="photId"
+                    value={inpVal.photoId}
+                    onChange={handlePhotographerChange}
+                    name="photoId"
+                  >
+                    <option value="">Please select one</option>
+                    {photographers &&
+                      photographers.map((item) => (
+                        <option key={item._id} value={item._id}>
+                          {item.name}
+                        </option>
+                      ))}
+                  </select>
+                </div>
 
-            <div className="select_inp_title">
-              <label>Select Photographer</label>
-              <select
-                id="photId"
-                value={inpVal.photoId}
-                onChange={handlePhotographerChange}
-                name="photoId"
-              >
-                <option value="">Please select one</option>
-                {photographers &&
-                  photographers.map((item) => (
-                    <option key={item._id} value={item._id}>
-                      {item.name}
-                    </option>
-                  ))}
-              </select>
-            </div>
-
-            <div className="select_inp_title">
-              <label>Select Taxi</label>
-              <select
-                id="taxiId"
-                value={inpVal.taxiId}
-                onChange={handleTaxiChange}
-                name="taxiId"
-              >
-                <option value="">Please select one</option>
-                {taxis &&
-                  taxis.map((item) => (
-                    <option key={item._id} value={item._id}>
-                      {item.carName}
-                    </option>
-                  ))}
-              </select>
-            </div>
+                <div className="select_inp_title">
+                  <label>Select Taxi</label>
+                  <select
+                    id="taxiId"
+                    value={inpVal.taxiId}
+                    onChange={handleTaxiChange}
+                    name="taxiId"
+                  >
+                    <option value="">Please select one</option>
+                    {taxis &&
+                      taxis.map((item) => (
+                        <option key={item._id} value={item._id}>
+                          {item.carName}
+                        </option>
+                      ))}
+                  </select>
+                </div>
 
                 <Input
                   type="number"
@@ -193,7 +202,6 @@ function AddPackage({ inputs, title, type }) {
                   required
                   errorMsg="Price is required!"
                 />
-               
               </div>
 
               <button
