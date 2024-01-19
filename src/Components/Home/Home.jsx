@@ -4,7 +4,6 @@ import ItemLists from '../ItemLists/ItemLists';
 import Navbar from '../Navbar/Navbar';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import Sidebar from '../Sidebar/Sidebar';
-import TableList from '../TableList/TableList';
 import './Home.scss';
 
 function Home() {
@@ -30,10 +29,10 @@ function Home() {
                     <Chart height={450} title="Revenue" />
                 </div>
 
-                <div className="table">
+                {/* <div className="table">
                     <div className="title">Latest Transactions</div>
                     <TableList />
-                </div>
+                </div> */}
             </div>
         </div>
     );

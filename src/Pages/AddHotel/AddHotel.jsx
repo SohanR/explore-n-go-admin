@@ -65,6 +65,8 @@ function AddHotel({ inputs, title, type }) {
         try {
             setLoading(true);
 
+            console.log("vaue", Object.values(photo));
+
             const imgList = await Promise.all(
                 Object.values(photo).map(async (files) => {
                     const data = new FormData();

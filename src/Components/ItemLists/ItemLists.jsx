@@ -74,21 +74,21 @@ function ItemLists({ type }) {
             };
             break;
         case 'earning':
-            data = {
-                title: 'BLOGS',
-                count: <CountUp end={blogData.length} duration={1} />,
-                icon: (
-                    <AttachMoneyOutlinedIcon
-                        style={{
-                            color: '#367E18',
-                            backgroundColor: '#A7FFE4',
-                        }}
-                        className="icon"
-                    />
-                ),
-                link: 'See All Blogs',
-                linkto: '/blogs',
-            };
+            // data = {
+            //     title: 'BLOGS',
+            //     count: <CountUp end={blogData.length} duration={1} />,
+            //     icon: (
+            //         <AttachMoneyOutlinedIcon
+            //             style={{
+            //                 color: '#367E18',
+            //                 backgroundColor: '#A7FFE4',
+            //             }}
+            //             className="icon"
+            //         />
+            //     ),
+            //     link: 'See All Blogs',
+            //     linkto: '/blogs',
+            // };
             break;
         case 'balance':
             data = {
@@ -118,7 +118,7 @@ function ItemLists({ type }) {
                 <p>{data.title}</p>
                 <span className="persentage positive">
                     <KeyboardArrowUpIcon />
-                    20 %
+                   
                 </span>
             </div>
 

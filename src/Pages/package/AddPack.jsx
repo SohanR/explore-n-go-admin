@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-props-no-spreading */
+import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +11,11 @@ import Sidebar from "../../Components/Sidebar/Sidebar";
 import { baseUrl } from "../../utils/base";
 import "./../AddRoom/addroom.scss";
 
+
 function AddPackage({ inputs, title, type }) {
+
+  const [photo, setPhoto] = useState("");
+
   const [inpVal, setInpVal] = useState({
     photoId: "",
     taxiId: "",
@@ -87,12 +92,32 @@ function AddPackage({ inputs, title, type }) {
     try {
       setLoading(true);
 
+      const imgList = await Promise.all(
+        Object.values(photo).map(async (files) => {
+          const data = new FormData();
+          data.append("file", files);
+          data.append("upload_preset", "upload");
+
+          const uploadRes = await axios.post(
+            "https://api.cloudinary.com/v1_1/drbvugloj/image/upload",
+            data
+          );
+
+          const { url } = uploadRes.data;
+          return url;
+        })
+      );
+
+      console.log("imgage", imgList);
+
       await axios.post(`${baseUrl}/pack/create`, {
         hotel: inpVal.hotelId,
         taxi: inpVal.taxiId,
         photographer: inpVal.photoId,
         price: inpVal.price,
-        packageName:inpVal.packageName
+        packageName:inpVal.packageName,
+        images:imgList
+        
       });
 
       setLoading(false);
@@ -128,8 +153,29 @@ function AddPackage({ inputs, title, type }) {
 
         <div className="new_page_main">
           <div className="new_page_content">
+          <div className="image">
+              <p className="add_new_user">Add Taxi Image</p>
+              <img
+                src={photo ? URL.createObjectURL(photo[0]) : ""}
+                alt="add img" height={500} width={500}
+              />
+            </div>
             <form onSubmit={handleSubmit} className="form">
               <div className="form_main">
+              <div className="form_inp">
+                  <label htmlFor="file">
+                    Upload: <DriveFolderUploadIcon className="file_icon" />
+                  </label>
+
+                  <input
+                    type="file"
+                    name="file"
+                    multiple
+                    id="file"
+                    // style={{ display: "none" }}
+                    onChange={(e) => setPhoto(e.target.files)}
+                  />
+                </div>
               <Input
                   type="text"
                   placeholder="Package Name"

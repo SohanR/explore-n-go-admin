@@ -14,7 +14,7 @@ function Packages() {
   useEffect(() => {
     const datass = async () => {
       const res = await axios.get(`${baseUrl}/packs`);
-      console.log("taxi", res);
+      console.log("packages", res.data);
       setData(res.data);
     };
     datass();
@@ -39,23 +39,31 @@ function Packages() {
       renderCell: (param) => <div className="userr">{param.row._id}</div>,
     },
     {
-      field: "title",
-      headerName: "Title",
-      width: 470,
+      field: "Hotel Name",
+      headerName: "Hotel Name",
+      width: 300,
       style: { color: "red" },      renderCell: (param) => (
-        <div className="userr">{param.row.carName}</div>
+        <div className="userr">{param.row.hotel?.name}</div>
       )
     },
     {
-      field: "maxPeople",
-      headerName: "Maxpeople",
+      field: "Taxi",
+      headerName: "Taxi",
       width: 140,
       renderCell: (param) => (
-        <div className="userr">{param.row.maxCapacity}</div>
+        <div className="userr">{param.row.taxi?.carName}</div>
+      ),
+    },
+    {
+      field: "Photgrapher",
+      headerName: "Photgrapher",
+      width: 140,
+      renderCell: (param) => (
+        <div className="userr">{param.row.photographer?.name}</div>
       ),
     },
     { field: "price", headerName: "Price", width: 140 ,      renderCell: (param) => (
-        <div className="userr">{param.row.pricePerKm}</div>
+        <div className="userr">{param.row.price}</div>
       )},
     {
       field: "action",

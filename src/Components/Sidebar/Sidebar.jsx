@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
 import TableChartIcon from '@mui/icons-material/TableChart';
 import React, { useContext } from 'react';
@@ -23,7 +22,7 @@ function Sidebar() {
 
             <div className="links">
                 <ul>
-                    <p className="spann">Main</p>
+                    {/* <p className="spann">Main</p> */}
                     <Link to="/" style={{ textDecoration: 'none' }}>
                         <li>
                             <DashboardIcon className="icon" /> Dashboard
@@ -67,11 +66,11 @@ function Sidebar() {
                         </li>
                     </Link>
 
-                    <p className="span">Settings</p>
+                    {/* <p className="span">Settings</p>
 
                     <li>
                         <LogoutIcon className="icon" /> Log Out
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </div>

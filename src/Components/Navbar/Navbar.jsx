@@ -1,6 +1,5 @@
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import SearchIcon from '@mui/icons-material/Search';
 import React, { useContext } from 'react';
 import { ColorContext } from '../../ColorContext/darkContext';
@@ -9,7 +8,6 @@ import { ColorContext } from '../../ColorContext/darkContext';
 import './navbar.scss';
 
 // import images
-import admin from '../../Images/admin_pic.jpg';
 
 function Navbar() {
     // color state management using react context
@@ -38,14 +36,14 @@ function Navbar() {
                     )}
                 </div>
 
-                <div className="item">
+                {/* <div className="item">
                     <NotificationsNoneIcon className="item_icon" />
                     <span className="badge">1</span>
                 </div>
 
                 <div className="item">
                     <img className="admin_pic" src={admin} alt="admin" />
-                </div>
+                </div> */}
             </div>
         </div>
     );
