@@ -20,7 +20,7 @@ function Home() {
                 <div className="home_items">
                     <ItemLists type="user" />
                     <ItemLists type="order" />
-                    <ItemLists type="earning" />
+                     {/* <ItemLists type="earning" /> */}
                     <ItemLists type="balance" />
                 </div>
 

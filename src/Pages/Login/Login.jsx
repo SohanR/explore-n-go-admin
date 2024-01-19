@@ -31,7 +31,7 @@ const index = () => {
         try {
             const res = await axios.post(`${baseUrl}/user/login`, inpVal);
 
-            if (res.data.message.isadmin) {
+            if (res.data.message.isAdmin) {
                 dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.message.details });
                 nevigate('/');
                 setLoginLoading(false);

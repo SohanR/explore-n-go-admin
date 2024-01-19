@@ -42,10 +42,10 @@ function Order() {
     }
   };
 
-  const handlePayment = (id) => {
+  const handlePayment = (id,price) => {
     console.log("order id", id);
     try {
-      axios.put(`${baseUrl}/order/update-payment`, { id });
+      axios.put(`${baseUrl}/order/update-payment`, { id,price });
       setData(data.filter((item) => item.id !== id));
       console.log(`payment ${id}`);
       window.location.reload();
@@ -197,7 +197,7 @@ function Order() {
                 background: "none",
                 marginRight: "10px",
               }}
-              onClick={() => handlePayment(params.row._id)}
+              onClick={() => handlePayment(params.row._id,params.row.totalPrice)}
             >
               Make Paid
             </button>
